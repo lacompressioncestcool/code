@@ -13,6 +13,7 @@ int main()
     fichier=fopen("ADN.txt","r");
     fd=fopen("fd.txt","w");
     b=fgetc(fichier);
+    com=0;
 
     while(b != EOF)
     {
@@ -41,8 +42,10 @@ int main()
                 exit(-1);
         }
         c++;
+       com++;
         b=fgetc(fichier);
-        if(com==7)
+
+        if(com==8)
         {
             com=0;
             fwrite(&a,1,sizeof(short),fd);
