@@ -6,7 +6,7 @@ int main()
 {
     FILE* fichier;
     FILE* fd;
-    short a,nb;
+    unsigned short a,nb;
     int c,com;
     char b;
 
@@ -20,22 +20,22 @@ int main()
 
         switch(b)
         {
-            case 'A':
-                a<<2;
+            case 'A'://00
+                a=a*4;
                 break;
-            case 'T':
-                a<<2;
+            case 'T'://01
+                a=a*4;
                 a++;
                 break;
-            case 'G':
-                a<<1;
+            case 'G'://10
+                a=a*2;
                 a++;
-                a<<1;
+                a=a*2;
                 break;
-            case 'C':
-                a<<1;
+            case 'C'://11
+                a=a*2;
                 a++;
-                a<<1;
+                a=a*2;
                 a++;
                 break;
             default:
@@ -48,15 +48,16 @@ int main()
         if(com==8)
         {
             com=0;
+            printf("%u\n",a);
             fwrite(&a,1,sizeof(short),fd);
             a=0;
         }
     }
 
-    if(a)   fwrite(&a,1,sizeof(short),fd);
+    if(com)   fwrite(&a,1,sizeof(short),fd);
 
     nb=c;
-    fwrite(&nb,1,sizeof(short),fd);
+    //fwrite(&nb,1,sizeof(short),fd);
 
     fclose(fd);
     fclose(fichier);
