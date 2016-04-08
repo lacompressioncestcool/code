@@ -1,0 +1,22 @@
+Pour faire le codage de Huffman, le but est de compter les fréquences de chaque mot pour ensuite donner le codage le plus "léger" aux caractères qui apparaissent le plus de fois.
+Pour cela, il faut compter les fréquences d'apparition des caractères. 
+Le pire cas possible c'est si on a que des caractères différents.
+
+Algo Frequence(Char[n] Message) ne renvoie rien, affiche le caractère le plus répété dans Message ainsi que le nombre de fois où il est répété
+{
+  i,j entiers
+  T[n] : tableau d'entiers de même taille que le message
+  Pour i allant de 0 à n // on initialise chaque fréquence à 0;
+    T[i]=0;
+  Fin Pour 
+  Pour j allant de 0 à n
+   Pour i allant de 0 à n 
+     Si Message[j]=Message[i]
+       T[j]=T[j]+1;
+     Fin Si
+   Fin Pour
+  Fin Pour
+  char c;
+  c=Message(indice_max(T)) // la fonction max renvoie l'indice du maximum dans un tableau d'entiers
+  print ("Le caractère le plus répété est" + c + "Il est répété" + T(indice_max) + "fois";
+}
