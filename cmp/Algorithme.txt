@@ -1,0 +1,27 @@
+Donc je me suis dit que vu que le C c'est pas trop ma tasse de thé, j'allais tout faire en algo pour ensuite traduire en C.
+
+Pour la compression, j'utilise l'algo coder
+
+Sachant que je ne sais pas vraiment comment utiliser les bits, je préfère créer un type octet qui contient 8 bits, sachant qu'un bit est un entier égal à 0 ou à 1. On suppose qu'un caractère prend 2 bits.
+
+
+Algo Codage (Char c) renvoie deux bits (je sais pas si on peut faire ça mais ce serait l'idée en tout cas) // Ici on a une fonction de codage particulière car on traite l'ADN, donc on doit coder 4 caractères différents, A, T, G ou C.
+{
+  if c=='A' return 00;
+  elif c=='T' return 01;
+  elif c=='G' return 10;
+  elif c=='C' return 11;
+  else print ('Erreur, vous n'avez pas entré un nucleotide.');
+}
+
+Algo Coder (Char[n] message) renvoie un octet
+{
+  i entier 
+  o octet
+  Pour i allant de 0 à n 
+    {
+    o=codage(message[i])+codage(message[i+1])+codage(message[i+2])+codage(message[i+3]);// l'intéret d'une telle fonction de codage en dehors de l'algo coder est de pouvoir modifier les caractères que l'on peut coder ainsi que comment ils seront compressés, car on peut très bien décider de coder autre chose que l'ADN humain.
+    print(o);
+    return o;
+    }
+}
