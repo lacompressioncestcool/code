@@ -1,0 +1,40 @@
+#include "stdafx.h"
+
+typedef struct str {
+
+	FILE* fichier;
+	int buf[100];
+	int nb_elem_lu;
+	int compte;
+
+};
+
+int lirebit(str buffer)
+{
+	int x=buffer.nb_elem_lu-buffer.compte;
+	int bit=-1;
+
+	if (!x)
+	{
+		x=fread(buffer.buf, sizeof(int), sizeof(int) * 100, buffer.fichier);
+		buffer.nb_elem_lu = x;
+	}
+	buffer.compte++;
+	
+
+
+
+}
+	
+
+int main()//A ajouter dans le main.
+{
+	str buffer;
+	buffer.compte = 0;
+	buffer.nb_elem_lu = 0;
+	buffer.fichier = fopen("adn.txt", "r");
+
+	
+	return 0;
+}
+
